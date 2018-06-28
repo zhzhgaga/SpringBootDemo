@@ -21,7 +21,7 @@ public class PropertiesController {
     }
 
 
-    @GetMapping("/properties")
+    @GetMapping("/getProperties")
     public MyProperties1 getProperties(){
 
         System.out.println(properties.toString());
