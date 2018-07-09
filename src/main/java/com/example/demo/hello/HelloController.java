@@ -3,7 +3,6 @@ package com.example.demo.hello;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author gzhou2
@@ -16,7 +15,7 @@ public class HelloController {
 
 
     @GetMapping("/sayHello")
-    public String hello(){
+    public String hello() {
         return "Hello Spring boot.";
     }
 
