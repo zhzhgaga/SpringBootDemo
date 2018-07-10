@@ -28,23 +28,24 @@ public class RabbitConfig {
         RabbitTemplate template = new RabbitTemplate(connectionFactory);
         template.setMandatory(true);
 
-        template.setMandatory(true);
         template.setConfirmCallback((correlationData, ack, cause)
-                -> logger.info("消息发送成功:correlationData({}),ack({}),cause({})", correlationData, ack, cause));
+                -> logger.info("消息发送成功:correlationData({}),ack({}),cause({})",
+                correlationData, ack, cause));
 
         template.setReturnCallback((message, replyCode, replyText, exchange, routingKey)
-                -> logger.info("消息丢失:exchange({}),route({}),replyCode({}),replyText({}),message:{}", exchange, routingKey, replyCode, replyText, message));
+                -> logger.info("消息丢失:exchange({}),route({}),replyCode({}),replyText({}),message:{}",
+                exchange, routingKey, replyCode, replyText, message));
 
         return template;
     }
 
 
-    private static final String REGISTER_DELAY_QUEUE = "delay queue";
+    private static final String REGISTER_DELAY_QUEUE = "DELAY QUEUE";
     public static final String REGISTER_DELAY_EXCHANGE = "DELAY EXCHANGE";
     public static final String DELAY_ROUTING_KEY = "";
     public static final String REGISTER_QUEUE_NAME = "REGISTER QUEUE";
-    private static final String REGISTER_EXCHANGE_NAME = "REGISTER CHANGE";
-    private static final String ROUTING_KEY = "ALL";
+    public static final String REGISTER_EXCHANGE_NAME = "REGISTER CHANGE";
+    public static final String ROUTING_KEY = "ALL";
 
 
     /**
